@@ -1,0 +1,126 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+/*
+CSS de navegacion entre paginas, gordo hijo de perra xd
+*/
+header {
+    position: sticky;
+    background-color: rgba(255, 192, 203, 0.767);
+   
+    align-items: center;
+}
+
+nav {
+    position: absolute;
+    top: 110px;
+    left: 200px;
+    margin: 15px;
+    
+}
+
+nav li {
+    display: inline;
+    padding: 10px;
+}
+
+nav a {
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+nav :hover {
+    color: palevioletred;
+    border-radius: 15px;
+}
+
+/*
+CSS de navegacion entre paginas fin, gordo hijo de perra xd
+*/
+
+/*
+CSS de barra de busqueda
+*/
+
+.container {
+    position: absolute;
+    left: 90%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+input {
+    outline: none;
+    box-sizing: border-box;
+    height: 60px;
+    width: 0px;
+    padding: 0 20px;
+    color: #000;
+    border-radius: 50px;
+    font-size: 20px;
+    border: 1px solid palevioletred;
+    transition: all .7s ease;
+}
+
+::placeholder {
+    color: grey;
+}
+
+.btn {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 80px;
+    height: 80px;
+    background: palevioletred;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn i {
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    line-height: 80px;
+    transition: all .7s ease;
+}
+
+.container:hover input {
+    width: 350px;
+}
+
+.container:hover i {
+    transform: rotate(-360deg);
+}
+
+.btn:hover {
+    background: #cf246b;
+}
+
+/*
+CSS de barra de busqueda fin 
+*/
+
+.imgLogo {
+    position: relative;
+    left: 10px;
+    height: 180px;
+    width: 180px;
+    border-radius: 30px;
+}
+
+.imgLogo:hover {
+    height: 210px;
+    width: 210px;
+    border-radius: 30px;
+}
+
+@media screen {}
