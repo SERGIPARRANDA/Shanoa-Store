@@ -1,126 +1,175 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
 }
+main{
+  font-family: 'Montserrat', sans-serif;
+}
+header {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+    justify-content: space-between;
+} 
 
+
+.btn-warning{
+  background-color: rgb(243, 150, 166) !important;
+}
 /*
 CSS de navegacion entre paginas, gordo hijo de perra xd
 */
-header {
-    position: sticky;
-    background-color: rgba(255, 192, 203, 0.767);
-   
-    align-items: center;
+.form-control:focus-visible {
+  border-color: rgb(243, 150, 166) !important; /* Cambia el color del borde al enfocar */
+  box-shadow: 0 0 0 0.25rem rgb(243, 150, 166); /* Añade un resplandor */
+}
+.form-control-dark {
+  border-color: var(--bs-danger-bg-subtle);
+}
+.form-control-dark:focus {
+  border-color: rgb(243, 150, 166) !important; /* Cambia el color del borde al enfocar */
+  box-shadow: 0 0 0 0.25rem rgb(243, 150, 166); 
+  outline: none;
 }
 
-nav {
-    position: absolute;
-    top: 110px;
-    left: 200px;
-    margin: 15px;
-    
+.text-small {
+  font-size: 85%;
 }
 
-nav li {
-    display: inline;
-    padding: 10px;
+.dropdown-toggle:not(:focus) {
+  outline: 0;
 }
+/* Contenido */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+/*  */
 
-nav a {
-    text-transform: uppercase;
-    color: #000000;
-    font-weight: bold;
-    font-size: 22px;
-    text-decoration: none;
-}
 
-nav :hover {
-    color: palevioletred;
-    border-radius: 15px;
-}
+
+
 
 /*
 CSS de navegacion entre paginas fin, gordo hijo de perra xd
 */
 
-/*
-CSS de barra de busqueda
-*/
 
-.container {
-    position: absolute;
-    left: 90%;
-    top: 45%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-}
 
-input {
-    outline: none;
-    box-sizing: border-box;
-    height: 60px;
-    width: 0px;
-    padding: 0 20px;
-    color: #000;
-    border-radius: 50px;
-    font-size: 20px;
-    border: 1px solid palevioletred;
-    transition: all .7s ease;
-}
 
-::placeholder {
-    color: grey;
-}
 
-.btn {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    width: 80px;
-    height: 80px;
-    background: palevioletred;
-    line-height: 80px;
-    border-radius: 50%;
-    text-align: center;
-    cursor: pointer;
-    transition: .5s;
-}
 
-.btn i {
-    font-size: 25px;
-    color: rgb(255, 255, 255);
-    line-height: 80px;
-    transition: all .7s ease;
-}
 
-.container:hover input {
-    width: 350px;
-}
 
-.container:hover i {
-    transform: rotate(-360deg);
-}
-
-.btn:hover {
-    background: #cf246b;
-}
-
-/*
-CSS de barra de busqueda fin 
-*/
-
-.imgLogo {
+/* Carrusel de Instagram */
+.swiper-hero {
+    margin: 10px;
+    width: 50%;
+    max-width: 1600px;
     position: relative;
-    left: 10px;
-    height: 180px;
-    width: 180px;
-    border-radius: 30px;
+    left: 0%;
+  }
+
+  .swiper-hero .swiper-slide {
+    width: 250px;
+  }
+
+  .swiper-hero img {
+    height: 255px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 1024px) {
+    .swiper-hero img {
+      height: 400px;
+    }
+  }
+
+  .swiper-hero .swiper-button-prev,
+  .swiper-hero .swiper-button-next {
+    --swiper-navigation-size: 20px;
+    background-color: white;
+    height: 70px;
+    width: 50px;
+    margin-top: -35px;
+
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .swiper-hero .swiper-button-prev {
+    border-radius: 0 65px 65px 0;
+    left: -10px;
+  }
+  .swiper-hero .swiper-button-next {
+    border-radius: 65px 0 0 65px;
+    right: -10px;
+  }
+
+  .swiper-hero:hover .swiper-button-prev,
+  .swiper-hero:hover .swiper-button-next {
+    opacity: 1;
+  }
+
+  .swiper-hero .swiper-pagination {
+    --swiper-pagination-color: rgb(252, 0, 168);
+    --swiper-pagination-bullet-size: 6px;
+    --swiper-pagination-bullet-inactive-color: #000;
+    --swiper-pagination-bullet-inactive-opacity: 0.25;
+    --swiper-pagination-bullet-opacity: 1;
+    --swiper-pagination-bullet-horizontal-gap: 2px;
+  }
+
+  .swiper-hero .swiper-pagination-bullet {
+    box-shadow: inset 0 0 0 1px #fff;
+  }
+
+  .swiper-hero .swiper-pagination-bullet-active {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  }
+/*  */
+
+
+
+
+
+
+
+
+
+
+
+.carousel {
+  margin-bottom: 1rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
 }
 
-.imgLogo:hover {
-    height: 210px;
-    width: 210px;
-    border-radius: 30px;
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 500px;
+}
+.banneraudi{
+  background-image: url(../imagenes/banneraudi.gif);
+  background-size: cover;
+  background-position: center;
+}
+.banneracce{
+  background-image: url(../imagenes/BANNERACCE.gif);
+  background-size: cover;
+  background-position: center;
+}
+.bannerreloj{
+  background-image: url(../imagenes/bannnerreloj.gif);
+  background-size: cover;
+  background-position: center;
 }
 
 @media screen {}
