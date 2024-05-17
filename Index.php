@@ -1,7 +1,83 @@
+<?php include ("PHPCONEXION/conexion.php"); ?>
+<?php
+// Incluir archivo de conexión a la base de datos
+
+$categoria_id1 = 13;
+$categoria_id2 = 20;
+$categoria_id3 = 21;
+$sql1 = "SELECT idCategorias , nombreCat FROM categorias WHERE idCategorias = $categoria_id1";
+$result = $conn->query($sql1);
+if ($result->num_rows > 0) {
+    $categoria1 = $result->fetch_assoc();
+    $nombreCategoria1 = $categoria1['nombreCat'];
+} else {
+    $nombreCategoria1 = "Categoría no encontrada";
+}
+
+$sql2 = "SELECT  idCategorias , nombreCat FROM categorias WHERE idCategorias = $categoria_id2";
+$result = $conn->query($sql2);
+if ($result->num_rows > 0) {
+    $categoria2 = $result->fetch_assoc();
+    $nombreCategoria2 = $categoria2['nombreCat'];
+} else {
+    $nombreCategoria2 = "Categoría no encontrada";
+}
+
+$sql3 = "SELECT  idCategorias , nombreCat FROM categorias WHERE idCategorias = $categoria_id3";
+$result = $conn->query($sql3);
+if ($result->num_rows > 0) {
+    $categoria3 = $result->fetch_assoc();
+    $nombreCategoria3 = $categoria3['nombreCat'];
+} else {
+    $nombreCategoria3 = "Categoría no encontrada";
+}
+?>
+<style>
+    .btn-success {
+        background-color: pink;
+        border: none;
+    }
+
+    .btn-success:hover {
+        background-color: #FBAED2;
+        border: none;
+    }
+
+    .btn-secondary {
+        background-color: pink;
+        border: none;
+    }
+
+    .btn-secondary:hover {
+        background-color: #FBAED2;
+        border: none;
+    }
+    @media (max-width: 768px) {
+    .DivRS {
+        flex-direction: column;
+       /* Cambiar a dirección de columna */
+    }
+    .swiper{
+        width: 600px;
+    }
+    @media (min-width: 1024px) {
+    .swiper-hero img {
+      height: 400px;
+      width: 600px;
+    }
+    .swiper-hero{
+        width: 600px;
+    }
+  }
+}
+
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <script src="/Shanoa%20Store/Styles/barraBusqueda.js"></script>
     <script src="../assets/js/color-modes.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,23 +86,28 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="http://localhost/Shanoa%20Store/Styles/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Styles/index.css">
 
 </head>
 
+
+
 <body>
-<?php include("Templates/header.php");?>
+    <?php include ("Templates/header.php"); ?>
+
+
+
+    <style>
+        .btn-secondary {
+            background-color: rgb(243, 150, 166);
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #FBAED2;
+            border: none;
+        }
+    </style>
 
     <!-- Carrusel -->
     <main>
@@ -91,33 +172,53 @@
             <div class="row">
                 <div class="col-lg-4">
                     <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-                        src="imagenes/AcceAudifo.jpg" alt="Imagen de ejemplo">
-                    <h2 class="fw-normal">Audifonos</h2>
+                        src="imagenes/Accesorios.jpg" alt="Imagen de ejemplo">
+                    <h2 class="fw-normal">
+                        <?php echo $nombreCategoria1; ?>
+                    </h2>
                     <p style="text-align: justify">Nuestros audífonos ofrecen una experiencia auditiva excepcional,
                         incluso a bajo costo. En nuestra tienda súper profesional, te garantizamos calidad, comodidad y
                         un sonido nítido que transformará tu experiencia auditiva.</p>
-                    <p><a class="btn btn-secondary" style="border: none; background-color: rgb(243, 150, 166);"
-                            href="#">Ver Mas &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-                <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="imagenes/AcceRelo.jpg"
-                        alt="Imagen de ejemplo">
-                    <h2 class="fw-normal">Relojes</h2>
-                    <p style="text-align: justify">En nuestra tienda, ofrecemos relojes inteligentes de alta calidad a
-                        precios accesibles. Con una atención profesional y un enfoque en la experiencia del cliente,
-                        garantizamos productos confiables que se adaptan a tus necesidades tecnológicas.</p>
-                    <p><a class="btn btn-secondary" href="#"
-                            style="border: none; background-color: rgb(243, 150, 166);">Ver Mas &raquo;</a></p>
+                    <a class="btn btn-secondary"
+                        href="/Shanoa%20Store/Secciones/Apartados%20principales/subcategorias.php?idCategoria=13">
+                        Ver Más &raquo;
+                    </a>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-                        src="imagenes/Accesorios.jpg" alt="Imagen de ejemplo">
-                    <h2 class="fw-normal">Accesorios</h2>
-                    <p style="text-align: justify">En mi tienda, ofrecemos accesorios para celulares, relojes y
-                        audífonos de alta calidad a precios asequibles. Nuestra amplia gama de productos está
-                        cuidadosamente seleccionada para garantizar la satisfacción del cliente.</p>
-                    <p><a class="btn btn-secondary" href="#"
-                            style="border: none; background-color: rgb(243, 150, 166);">Ver Mas &raquo;</a></p>
+                        src="imagenes/Tecnologia.jpg" alt="Imagen de ejemplo">
+                    <h2 class="fw-normal">
+                        <?php echo $nombreCategoria2; ?>
+                    </h2>
+                    <p style="text-align: justify">En nuestra tienda, ofrecemos relojes inteligentes de alta calidad a
+                        precios accesibles. Con una atención profesional y un enfoque en la experiencia del cliente,
+                        garantizamos productos confiables que se adaptan a tus necesidades tecnológicas.</p>
+                    <a class="btn btn-secondary"
+                        href="/Shanoa%20Store/Secciones/Apartados%20principales/subcategorias.php?idCategoria=20">
+                        Ver Más &raquo;
+                    </a>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                        src="imagenes/Promociones.jpg" alt="Imagen de ejemplo">
+                    <h2 class="fw-normal">
+                        <?php echo $nombreCategoria3; ?>
+                    </h2>
+                    <p style="text-align: justify">
+                        En mi tienda, ofrecemos
+                        para celulares, relojes y audífonos de alta calidad
+                        a precios asequibles.
+                        Nuestra amplia gama de productos está cuidadosamente seleccionada para garantizar la
+                        satisfacción del cliente.
+                    </p>
+
+                    <p>
+                        <a class="btn btn-secondary"
+                            href="/Shanoa%20Store/Secciones/Apartados%20principales/subcategorias.php?idCategoria=21">
+                            Ver Más &raquo;
+                        </a>
+
+                    </p>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
             <!-- QUIENES SOMOS -->
@@ -178,8 +279,48 @@
             <hr class="featurette-divider">
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading fw-normal lh-1">titulo. <span>
-                            <p class="lead">que pongo que pongoooooooooooo.</p>
+                    <h2 class="featurette-heading fw-normal lh-1"> <span>
+                            <p class="lead"> <b>¡Bienvenidos a Shanoa Luxury, tu destino para lo último en tecnología de
+                                    lujo!</b>
+                                <br>
+                                <br>
+
+                                ¿Buscas elevar tu estilo con lo mejor en gadgets tecnológicos? ¡Has llegado al lugar
+                                indicado! En Shanoa Luxury, fusionamos la elegancia con la innovación para ofrecerte una
+                                experiencia única.
+                                <br>
+                                <br>
+
+                                🎧 Sumérgete en el sonido cristalino con nuestros Air Pods, diseñados para acompañar
+                                cada uno de tus movimientos con una calidad insuperable.
+                                <br>
+                                <br>
+
+                                ⌚️ Completa tu look con nuestros relojes inteligentes, una fusión perfecta entre estilo
+                                y funcionalidad. Mantén el control de tu vida mientras deslumbras con tu estilo único.
+                                <br>
+                                <br>
+
+                                💼 ¿Necesitas proteger tus dispositivos o lucir a la moda? Descubre nuestras exclusivos
+                                cases y accesorios que no solo brindan seguridad, ¡sino que también son un accesorio de
+                                moda imprescindible!
+                                <br>
+                                <br>
+
+                                En Shanoa Luxury, cada producto es más que un gadget, es una declaración de estilo.
+                                ¡Hazte con lo mejor en tecnología de vanguardia y eleva tu día a día!
+                                <br>
+                                <br>
+
+                                🚀 ¡No esperes más para ser parte de la experiencia Shanoa! Tu próxima adquisición
+                                tecnológica de lujo está a solo un clic de distancia. ¡Explora, elige y vive el lujo con
+                                Shanoa Luxury!
+                                <br>
+                                <br>
+
+                                ✨ ¡Descubre el futuro de la tecnología, solo en Shanoa Luxury! ✨
+                                <br>
+                            </p>
                 </div>
                 <div class="col-md-5 order-md-1">
                     <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
@@ -194,8 +335,57 @@
             <hr class="featurette-divider">
             <div class="row featurette">
                 <div class="col-md-7 ">
-                    <h2 class="featurette-heading fw-normal lh-1">titulo. <span>
-                            <p class="lead">que pongo que pongoooooooooooo.</p>
+                    <h2 class="featurette-heading fw-normal lh-1">POLÍTICAS. <span>
+                            <p class="lead">
+                                <strong>Rápido y Seguro:</strong> Nuestro equipo se esfuerza por asegurar que tus
+                                pedidos lleguen a tus manos de manera rápida y segura. ¡No hay tiempo que perder cuando
+                                se trata de tecnología de primera!
+                                <br>
+                                <br>
+                                <strong>En Tiempo Real:</strong> Mantente al tanto de tu paquete con nuestro sistema de
+                                seguimiento en tiempo real. ¡Nunca más tendrás que preguntarte dónde está tu preciada
+                                adquisición!
+                                <br>
+                                <br>
+                                <strong> Empaque de Lujo:</strong> Cada artículo que enviamos está envuelto con cuidado
+                                y atención al detalle. ¡Tu producto llegará a ti como un verdadero tesoro tecnológico!
+                                <br>
+                                <br>
+                                <strong>Políticas de Devolución:</strong>
+                                <br>
+                                <br>
+                                <strong>Satisfacción Garantizada:</strong> Tu felicidad es nuestra prioridad número uno.
+                                Si por alguna razón no estás completamente satisfecho con tu compra, ¡haznoslo saber y
+                                haremos todo lo posible para solucionarlo!
+                                <br>
+                                <br>
+                                <strong>Devoluciones Sin Complicaciones:</strong> Procesamos devoluciones de manera
+                                rápida y sencilla. ¡Queremos que tu experiencia de compra con Shanoa Luxury sea siempre
+                                libre de estrés!
+                                <br>
+                                <br>
+                                <strong>Servicios Exclusivos:</strong>
+                                <br>
+                                <br>
+                                <strong>Asesoramiento Personalizado:</strong> ¿Necesitas ayuda para elegir el
+                                dispositivo perfecto? Nuestro equipo de expertos está aquí para ofrecerte asesoramiento
+                                personalizado y recomendaciones adaptadas a tus necesidades.
+                                <br>
+                                <br>
+                                <strong>Eventos Virtuales Especiales:</strong> ¡Únete a nosotros en nuestros eventos
+                                virtuales exclusivos! Desde lanzamientos de productos hasta seminarios web tecnológicos,
+                                hay algo emocionante para todos los amantes de la tecnología.
+                                <br>
+                                <br>
+                                <strong>Regalos de Lujo:</strong> ¿Buscas el regalo perfecto para el amante de la
+                                tecnología en tu vida? Descubre nuestra selección de regalos de lujo que harán que
+                                cualquier aficionado a la tecnología sonría de oreja a oreja.
+                                <br>
+                                <br>
+                                <strong>En Shanoa Luxury, no solo vendemos productos, ¡sino que creamos una experiencia!
+                                    Únete a nuestra comunidad de entusiastas de la tecnología y descubre un mundo de
+                                    lujo digital como ningún otro.</strong>
+                            </p>
                 </div>
                 <div class="col-md-5 order-md-1">
                     <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
@@ -212,20 +402,21 @@
             <!-- REDES SOCIALES -->
             <h1 style="text-align: center; font-size: 25px;">REDES SOCIALES</h1>
             <hr>
+    
             
-            <div style="display: flex; flex-direction: column;">
-                <div style="display: flex; justify-content: space-between;">
+                <div style="display: flex; justify-content: space-between;" class="DivRS">
                     <!-- Tiktoks -->
                     <div style="width: 50%; ">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shanoah_luxury.2"
-                            data-unique-id="shanoah_luxury.2" data-embed-type="creator" style="">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@shanoah.luxxury"
+                            data-unique-id="shanoah.luxxury" data-embed-type="creator"
+                            style="max-width: 780px; min-width: 288px;">
                             <section> <a target="_blank"
-                                    href="https://www.tiktok.com/@shanoah_luxury.2?refer=creator_embed">@shanoah_luxury.2</a>
+                                    href="https://www.tiktok.com/@shanoah.luxxury?refer=creator_embed">@shanoah.luxxury</a>
                             </section>
                         </blockquote>
                         <script async src="https://www.tiktok.com/embed.js"></script>
                     </div>
-                    <div class=" swiper swiper-hero" style="background: tr;">
+                    <div class="swiper swiper-hero" style="background: tr;">
                         <div>
                             <h2 style="text-align: center;"><svg xmlns="http://www.w3.org/2000/svg" width="40"
                                     height="40" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -271,14 +462,14 @@
                         <!-- <div class="swiper-scrollbar"></div> -->
                     </div>
                 </div>
-            </div>
+
 
 
         </div>
         <!--  -->
     </main>
     <!--  -->
-    <?php include("Templates/footer.php");?>
+    <?php include ("Templates/footer.php"); ?>
 
     <!-- scripts -->
     <!-- Carrusel IG -->
@@ -328,6 +519,7 @@
     </script>
     <!--  -->
     <!-- boostrap -->
+    <script src="/Shanoa%20Store/Styles/barraBusqueda.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

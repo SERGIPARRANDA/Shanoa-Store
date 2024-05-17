@@ -13,6 +13,6 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 } else {
-    echo "Conexión exitosa"; // Esto es opcional, solo para verificar que la conexión se realizó correctamente
+    // Esto es opcional, solo para verificar que la conexión se realizó correctamente
 }
 ?>

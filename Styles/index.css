@@ -10,10 +10,43 @@ header {
     justify-content: space-between;
 } 
 
-
-.btn-warning{
-  background-color: rgb(243, 150, 166) !important;
+.btn-success{
+  background-color: pink;
+  border: none;
 }
+
+.btn-success:hover{
+  background-color: #FBAED2;
+  border: none;
+}
+
+.btn-secondary{
+  background-color: pink;
+  border: none;
+}
+.btn-secondary:hover{
+  background-color: #FBAED2;
+  border: none;
+}
+
+
+.contenedor {
+  text-align: center; /* Opcional para centrar los divs internos */
+}
+
+.cambio-color:hover {
+  background-color: red; /* Cambia el color de fondo a rojo cuando el cursor está sobre el botón */
+  color: white; /* Cambia el color del texto a blanco cuando el cursor está sobre el botón */
+}
+.btn-success{
+  background-color: pink;
+  border: none;
+}
+.btn-success:hover{
+  background-color: #FBAED2;
+  border: none;
+}
+
 /*
 CSS de navegacion entre paginas, gordo hijo de perra xd
 */
@@ -82,12 +115,13 @@ CSS de navegacion entre paginas fin, gordo hijo de perra xd
     width: 100%;
     object-fit: cover;
   }
-
+ 
   @media (min-width: 1024px) {
     .swiper-hero img {
       height: 400px;
     }
   }
+ 
 
   .swiper-hero .swiper-button-prev,
   .swiper-hero .swiper-button-next {
@@ -172,4 +206,3 @@ CSS de navegacion entre paginas fin, gordo hijo de perra xd
   background-position: center;
 }
 
-@media screen {}
